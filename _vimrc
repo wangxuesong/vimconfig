@@ -60,6 +60,24 @@ function MyDiff()
   silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
 
+"-------------------------------------------------------------------------------
+
+" Vim Addon Manager
+
+fun LoadVimAddonManager()
+
+    " Load vim-addon-manager
+    set runtimepath+=$VIM/vim-addons/vim-addon-manager
+
+    " Install/load these plugins
+    call vam#ActivateAddons( [ "taglist", "pythoncomplete" ] )
+endf
+
+" Activate the manager after Vim startup
+au VimEnter * call LoadVimAddonManager()
+
+"-------------------------------------------------------------------------------
+
 set nobackup
 set dir=$TEMP
 
